@@ -2,12 +2,14 @@
 
 int CompareNode(const struct Process *a, const struct Process *b) {
 	assert(a && b);
-	if(a->tot < b->tot) return 1;
-	if(a->tot > b->tot) return 0;
 
-	if(a->id < b->id) return 1;
-	if(a->id > b->id) return 0;
-	return 1;
+	if(a->tot != b->tot)
+		return a->tot < b->tot ? 1 : 0;
+
+	if(a->ready != b->ready)
+		return a->ready < b->ready ? 1 : 0;
+
+	return a->id < b->id ? 1 : 0;
 }
 
 void Insert(struct Process **pool, int now, struct Process *p) {

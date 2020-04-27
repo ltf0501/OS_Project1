@@ -1,7 +1,7 @@
 #ifndef HEAP_H_
 #define HEAP_H_
 
-#define kMaxNode 101 
+#define kMaxNode 100001 
 
 #include "util.h"
 
