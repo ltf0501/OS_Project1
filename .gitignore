@@ -1,4 +1,8 @@
 main
 *.o
 *~
+*.tex
+*.log
+*.out
+*.aux
 
