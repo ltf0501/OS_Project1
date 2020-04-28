@@ -40,21 +40,22 @@ void DoProcess(struct Process *process) {
 		exit(1);
 	}
 	if(pid == 0) { // child
-		struct timeval start, end;
-		//struct timespec start, end;
-		gettimeofday(&start, NULL);
-		//syscall(333, &start);
+		//struct timeval start, end;
+		struct timespec start, end;
+		//gettimeofday(&start, NULL);
+		syscall(333, &start);
 		for(int j = 0; j < process->tot; j++)
 			UNIT_TIME;
-		gettimeofday(&end, NULL);
-		//syscall(333, &end);
-		//syscall(334, getpid(), start.tv_sec, start.tv_nsec, end.tv_sec, end.tv_nsec);
-		fprintf(stderr, "[Project 1] %d %ld.%09ld %ld.%09ld\n", getpid(), start.tv_sec, start.tv_usec, end.tv_sec, end.tv_usec);
+		//gettimeofday(&end, NULL);
+		syscall(333, &end);
+
+		syscall(334, getpid(), start.tv_sec, start.tv_nsec, end.tv_sec, end.tv_nsec);
+		//fprintf(stderr, "[Project 1] %d %ld.%09ld %ld.%09ld\n", getpid(), start.tv_sec, start.tv_usec, end.tv_sec, end.tv_usec);
 		exit(0);
 	}
 	else { // father
-		Setpri(pid, 1);	
 		SetCPU(pid, 1);
+		Setpri(pid, 1);	
 
 		process->pid = pid;
 		process->run = 0;

@@ -19,7 +19,6 @@ void Insert(struct Process **pool, int now, struct Process *p) {
 	}
 
 	pool[now] = p;
-	int a = now;
 
 	while(now > 1) {
 		int fa = now >> 1;

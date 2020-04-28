@@ -20,6 +20,7 @@ void PSJF_Scheduler(struct Process *process, int n) {
 					Setpri(cur->pid, 1);
 					Insert(HeapPool, ++in_heap, cur);
 
+					if(!p->ok) DoProcess(p);
 					cur = p;
 					Setpri(cur->pid, kInf); 
 				}
