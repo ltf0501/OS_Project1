@@ -6,9 +6,9 @@ A simple project written with C.
 + kernel 4.15.0
 
 ## New system calls
-+ 'asmlinkage void sys\_gettime(struct timespec *r);', id = 333
-+ 'asmlinkage void sys\_printinfo(int pid, long a, long b, long c, long d);', id = 334
-+ 'asmlinkage void sys\_hello(void);', id = 335
++ `asmlinkage void sys\_gettime(struct timespec *r);`, id = 333
++ `asmlinkage void sys\_printinfo(int pid, long a, long b, long c, long d);`, id = 334
++ `asmlinkage void sys\_hello(void);`, id = 335
 
 Note that the last system call is just added for testing.
 
