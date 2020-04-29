@@ -11,6 +11,6 @@ input_folder="OS_PJ1_Test"
 for i in TIME_MEASUREMENT FIFO_1 PSJF_2 RR_3 SJF_4; do
 	echo "Demo $i..."
 	./main < $input_folder/$i.txt
-	dmesg -C | grep Project1
+	dmesg -c | grep Project1
 	echo ""
 done
